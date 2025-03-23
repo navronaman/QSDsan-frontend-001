@@ -1,0 +1,428 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* nav bar */
+nav{
+    background-color: white;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li{
+    height: 40px;
+}
+
+nav a{
+    margin-top: 10px;
+    height: 100%;
+    display: flex;
+    padding: 0 30px;
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover{
+    background-color: rgb(116, 177, 201);
+    color: white;
+}
+
+nav li:first-child{
+    margin-right: auto;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items:flex-start;
+}
+
+.sidebar a{
+    width: 100%;
+}
+
+.menuBtn{
+    display: none;
+}
+
+/* imperial/metric button */
+.tab-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.tab-label {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s;
+}
+
+input[type="radio"]:checked + .tab-label {
+    background-color: white;
+    color:  rgb(116, 177, 201);
+    border: 2px solid  rgb(116, 177, 201);
+}
+
+/* tool tip */
+.info-div {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.info-icon {
+    cursor: pointer;
+    margin-left: 5px;
+    color: rgb(213, 213, 226);
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+}
+
+.info-icon:hover .tooltip {
+    visibility: visible;
+}
+
+/* header css */
+body{
+    min-height: 100vh;
+    background: linear-gradient(to bottom,
+        rgb(116, 177, 201), /* Start color */
+        rgb(100, 160, 190), /* Mid color */
+        rgb(84, 143, 179), /* Mid color */
+        rgb(100, 160, 190), /* Mid color */
+        rgb(116, 177, 201) /* End color */
+    );    
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3{
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+/* nav bar */
+.head-container{
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.hambuger{
+    position: relative;
+    display: block;
+    width: 35px;
+    cursor: pointer;
+
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.hambuger .bar, .hambuger:after, .hambuger:before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #FFF;
+    margin: 6dvi 0;
+    transition: 0.4s;
+}
+
+.hambuger.is-active:before{
+    transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hambuger.is-active:after{
+    transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.hambuger.is-active .bar{
+    opacity: 0;
+}
+
+/* container for information about the county data */
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh-50px);
+}
+
+.info-div{
+    color: white;
+    width: fit-content;
+    opacity: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+
+.unit-select {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-left: 5px;
+}
+
+.unit-select:focus {
+    outline: none;
+}
+
+.unit-select option {
+    background-color: rgb(116, 177, 201);
+    color: white;
+}
+
+
+.highlight{
+    text-decoration: underline;
+    transition: text-decoration 0.3s ease;
+}
+
+/* map */
+svg {
+    display: block;
+    margin: 0 auto;        
+}
+
+svg path{
+    cursor: pointer;
+}
+
+/* collapsible section css */
+.collapsible-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+}
+
+.collapsible-header:hover .arrow {
+    color: #007BFF;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.collapsible-content {
+    display: none;
+    padding: 10px;
+}
+
+
+.collapsible-container.active .collapsible-content {
+    display: block;
+}
+
+.collapsible-container.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* table in collapsible content */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.f-col{
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* export and other buttons */
+
+.btn-class {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+/* manual calculator */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+label {
+    /* margin-left: 0.5px; */
+    /* margin-right: 0.5px; */
+    margin-bottom: 10px;
+    color: white;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+#manualBox{
+    background-color: #007BFF;
+}
+
+#manualBox:hover{
+    background-color: #0056b3;
+}
+
+#manualInfoOutput{
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: white;
+}
+
+/* export buttons */
+
+.export-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+#export{
+    background-color: #007BFF;
+    margin-bottom: 20px;
+}
+
+#export:hover{
+    background-color: #0056b3;
+}
+
+/* manual error and other error buttons */
+
+.error {
+    color: rgb(231, 21, 21);
+    background-color: rgb(255, 228, 228);
+    border: 1px solid rgb(231, 21, 21);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+    display: inline-block;
+    vertical-align: middle;
+    /* margin-right: 8px; */
+    font-size: 18px;
+}
+
+@media(max-width: 720px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menuBtn{
+        display: block;
+    }
+}
+
+@media(max-width: 440px){
+    .sidebar{
+        width: 100%;
+    }
+    .menuBtn{
+        top: 10px;
+        right: 10px;
+    }
+}
